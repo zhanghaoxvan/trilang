@@ -1,0 +1,31 @@
+module main
+
+import "math" as math
+
+#[test]
+func test_fib() {
+    assert(fib(10) == 55)
+}
+
+func fib(n: int) -> int {
+    if n <= 1 {
+        return n
+    }
+    return fib(n-1) + fib(n-2)
+}
+
+let ch = make(chan int, 2)
+
+spawn func() {
+    ch <- fib(20)
+    close(ch)
+}
+func main() {
+    let result = await ch
+    print("Result:", result)
+    if result != 6765 {
+        panic("Unexpected result: " + result)
+    } else {
+        print("Fibonacci calculation successful!")
+    }
+}

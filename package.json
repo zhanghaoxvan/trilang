@@ -1,0 +1,46 @@
+{
+  "name": "trilang",
+  "publisher": "zhanghaoxvan",
+  "contributes": {
+    "languages": [
+      {
+        "id": "trilang",
+        "aliases": [
+          "TriLang"
+        ],
+        "extensions": [
+          ".tri"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "trilang",
+        "scopeName": "source.trilang",
+        "path": "./syntaxes/trilang.tmLanguage.json"
+      }
+    ]
+  },
+  "displayName": "TriLang",
+  "version": "0.0.1",
+  "description": "TriLang language support for VS Code",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhanghaoxvan/trilang-extension.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhanghaoxvan/trilang-extension/issues"
+  },
+  "dependencies": {
+    "@types/vscode": "^1.100.0",
+    "vscode-languageclient": "^9.0.1"
+  }
+}

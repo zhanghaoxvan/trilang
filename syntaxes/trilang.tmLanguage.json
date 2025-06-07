@@ -1,0 +1,176 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "TriLang",
+    "scopeName": "source.trilang",
+    "patterns": [
+        { "include": "#comments" },
+        { "include": "#keywords" },
+        { "include": "#types" },
+        { "include": "#literals" },
+        { "include": "#operators" },
+        { "include": "#functions" },
+        { "include": "#attributes" },
+        { "include": "#strings" },
+        { "include": "#numbers" },
+        { "include": "#punctuation" }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.trilang",
+                    "match": "//.*$"
+                },
+                {
+                    "name": "comment.block.trilang",
+                    "begin": "/\\*",
+                    "end": "\\*/"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.trilang",
+                    "match": "\\b(if|else|for|while|do|switch|case|default|break|continue|return|goto|defer)\\b"
+                },
+                {
+                    "name": "keyword.declaration.trilang",
+                    "match": "\\b(module|func|let|var|const|struct|enum|interface|impl|import|as|pub|type)\\b"
+                },
+                {
+                    "name": "keyword.operator.trilang",
+                    "match": "\\b(sizeof|alignof|typeof)\\b"
+                },
+                {
+                    "name": "constant.language.trilang",
+                    "match": "\\b(null|true|false)\\b"
+                }
+            ]
+        },
+        "types": {
+            "patterns": [
+                {
+                    "name": "storage.type.primitive.trilang",
+                    "match": "\\b(bool|int(8|16|32|64)?|uint(8|16|32|64)|float(32|64)|char|string)\\b"
+                },
+                {
+                    "name": "storage.type.composite.trilang",
+                    "match": "\\b(map|\\[\\]|\\[*\\])\\b"
+                }
+            ]
+        },
+        "literals": {
+            "patterns": [
+                { "include": "#strings" },
+                { "include": "#numbers" },
+                {
+                    "name": "constant.character.escape.trilang",
+                    "match": "\\\\[\\\\'\"nrt]"
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.trilang",
+                    "match": "(\\+|-|\\*|/|%|&|\\||\\^|<<|>>|:=|->|=>|\\.\\.|\\.\\.=|[=!]=|<[<=]?|>[>=]?|&&|\\|\\||!)"
+                },
+                {
+                    "name": "punctuation.separator.dot.trilang",
+                    "match": "\\."
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.trilang",
+                    "match": "\\bfunc\\s+(\\w+)"
+                },
+                {
+                    "name": "support.function.builtin.trilang",
+                    "match": "\\b(print|len|cap|append|delete|panic|recover|spawn|await)\\b"
+                }
+            ]
+        },
+        "attributes": {
+            "patterns": [
+                {
+                    "name": "meta.annotation.trilang",
+                    "begin": "#\\[",
+                    "end": "\\]",
+                    "patterns": [
+                        {
+                            "name": "entity.name.annotation.trilang",
+                            "match": "\\b(test|bench|platform)\\b"
+                        }
+                    ]
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.trilang",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.trilang",
+                    "match": "\\\\[\\\\\"nrt]"
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.integer.trilang",
+                    "match": "\\b\\d+(_?\\d+)*\\b"
+                },
+                {
+                    "name": "constant.numeric.float.trilang",
+                    "match": "\\b\\d+(_?\\d+)*\\.\\d+(_?\\d+)*\\b"
+                },
+                {
+                    "name": "constant.numeric.hex.trilang",
+                    "match": "\\b0x[0-9a-fA-F]+(_?[0-9a-fA-F]+)*\\b"
+                }
+            ]
+        },
+        "punctuation": {
+            "patterns": [
+                {
+                    "name": "punctuation.definition.block.begin.trilang",
+                    "match": "\\{"
+                },
+                {
+                    "name": "punctuation.definition.block.end.trilang",
+                    "match": "\\}"
+                },
+                {
+                    "name": "punctuation.terminator.trilang",
+                    "match": ";"
+                },
+                {
+                    "name": "punctuation.separator.comma.trilang",
+                    "match": ","
+                },
+                {
+                    "name": "punctuation.definition.array.begin.trilang",
+                    "match": "\\["
+                },
+                {
+                    "name": "punctuation.definition.array.end.trilang",
+                    "match": "\\]"
+                },
+                {
+                    "name": "punctuation.definition.tuple.begin.trilang",
+                    "match": "\\("
+                },
+                {
+                    "name": "punctuation.definition.tuple.end.trilang",
+                    "match": "\\)"
+                }
+            ]
+        }
+    }
+}
