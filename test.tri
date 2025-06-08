@@ -28,4 +28,9 @@ func main() {
     } else {
         print("Fibonacci calculation successful!")
     }
+    try {
+        panic("Error!")
+    } catch e {
+        print(e)
+    }
 }

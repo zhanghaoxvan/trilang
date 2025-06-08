@@ -12,7 +12,9 @@
         { "include": "#attributes" },
         { "include": "#strings" },
         { "include": "#numbers" },
-        { "include": "#punctuation" }
+        { "include": "#punctuation" },
+        { "include": "#variables" },
+        { "include": "#module" }
     ],
     "repository": {
         "comments": {
@@ -28,15 +30,31 @@
                 }
             ]
         },
+        "module": {
+            "patterns": [
+                {
+                    "name": "entity.name.type.trilang",
+                    "match": "\\b(module)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.control.trilang"
+                        },
+                        "2": {
+                            "name": "entity.name.type.trilang"
+                        }
+                    }
+                }
+            ]
+        },
         "keywords": {
             "patterns": [
                 {
                     "name": "keyword.control.trilang",
-                    "match": "\\b(if|else|for|while|do|switch|case|default|break|continue|return|goto|defer)\\b"
+                    "match": "\\b(if|else|for|while|do|switch|case|default|break|continue|return|goto|defer|try|catch|throw|import|as|assert)\\b"
                 },
                 {
                     "name": "keyword.declaration.trilang",
-                    "match": "\\b(module|func|let|var|const|struct|enum|interface|impl|import|as|pub|type)\\b"
+                    "match": "\\b(module|func|let|var|const|struct|enum|interface|impl|pub|typeof)\\b"
                 },
                 {
                     "name": "keyword.operator.trilang",
@@ -86,7 +104,11 @@
             "patterns": [
                 {
                     "name": "entity.name.function.trilang",
-                    "match": "\\bfunc\\s+(\\w+)"
+                    "match": "(?<=\\bfunc\\s)([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+                },
+                {
+                    "name": "entity.name.function.trilang",
+                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*\\()"
                 },
                 {
                     "name": "support.function.builtin.trilang",
@@ -102,7 +124,7 @@
                     "end": "\\]",
                     "patterns": [
                         {
-                            "name": "entity.name.annotation.trilang",
+                            "name": "entity.name.type.trilang",
                             "match": "\\b(test|bench|platform)\\b"
                         }
                     ]
@@ -133,6 +155,14 @@
                 {
                     "name": "constant.numeric.hex.trilang",
                     "match": "\\b0x[0-9a-fA-F]+(_?[0-9a-fA-F]+)*\\b"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.other.trilang",
+                    "match": "\\b(?!(if|else|for|while|do|switch|case|default|break|continue|return|goto|defer|try|catch|throw|module|func|let|var|const|struct|enum|interface|impl|import|as|pub|type|sizeof|alignof|typeof|null|true|false|print|len|cap|append|delete|panic|recover|spawn|await))([a-zA-Z_][a-zA-Z0-9_]*)\\b"
                 }
             ]
         },

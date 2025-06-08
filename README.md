@@ -139,7 +139,7 @@ if x > 0 {
 ### 6.2 循环语句
 ```
 // for循环
-for i := 0; i < 10; i++ {
+for i = 0; i < 10; i++ {
     print(i)
 }
 
@@ -159,7 +159,7 @@ for i in 0..10 {
     print(i)  // 0到9
 }
 
-for i in 0..=10 {
+for i in 0..10 {
     print(i)  // 0到10
 }
 ```
@@ -196,11 +196,10 @@ enum Color {
     Red
     Green
     Blue
-    RGB(u8, u8, u8)
 }
 
 // 使用
-let c = Color::RGB(255, 0, 0)
+let c = Color::Blue
 ```
 
 ### 7.3 接口

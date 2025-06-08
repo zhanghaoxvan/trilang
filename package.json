@@ -9,7 +9,8 @@
           "TriLang"
         ],
         "extensions": [
-          ".tri"
+          ".tri",
+          ".trilang"
         ],
         "configuration": "./language-configuration.json"
       }
@@ -42,5 +43,6 @@
   "dependencies": {
     "@types/vscode": "^1.100.0",
     "vscode-languageclient": "^9.0.1"
-  }
+  },
+  "icon": "icon.png"
 }
